@@ -1,5 +1,6 @@
 import pygame
 
+
 class Ship():
 
     def __init__(self, ai_settings, screen):
@@ -28,7 +29,6 @@ class Ship():
         """在指定位置绘制飞船"""
         self.screen.blit(self.image, self.rect)
 
-
     def update(self):
         """根据移动标志调整飞船的位置"""
         if self.moving_right and self.rect.right < self.screen_rect.right:
@@ -37,3 +37,7 @@ class Ship():
             self.center -= self.ai_settings.ship_speed_factor
 
         self.rect.centerx = self.center
+
+    def center_ship(self):
+        """让飞船在屏幕上居中"""
+        self.center = self.screen_rect.centerx
